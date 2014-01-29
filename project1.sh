@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+sudo apt-get update
+sudo apt-get install make -y
+sudo apt-get install valgrind -y
+sudo apt-get install libcurl4-gnutls-dev -y
+sudo apt-get install build-essential g++
+cd ..
+cd ..
+cd vagrant
+make clean
