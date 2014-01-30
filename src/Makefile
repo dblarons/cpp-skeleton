@@ -5,7 +5,7 @@ LDFLAGS=-g
 LDLIBS=-lm -ldl -lz
 
 # List all .cpp files here
-SRCS=CalTest.cpp Date.cpp Reminder.cpp
+SRCS=CalTest.cpp Date.cpp Reminder.cpp Calendar.cpp
 
 # subst replaces all instances of .cpp with .o in SRCS
 OBJS=$(subst .cpp,.o,$(SRCS))
@@ -17,7 +17,7 @@ all: $(TARGET)
 
 # TARGET depends on $(OBJS)
 $(TARGET): $(OBJS)
-	$(CXX) $(LDFLAGS) -o output $(OBJS) Calendar.o $(LDLIBS)
+	$(CXX) $(LDFLAGS) -o output $(OBJS) $(LDLIBS)
 
 # CalTest.cpp depends on Calendar.h
 CalTest.o: CalTest.cpp Calendar.h
@@ -30,7 +30,8 @@ Date.o: Date.cpp Date.h
 Reminder.o: Reminder.cpp Reminder.h Date.h
 	$(CXX) $(CPPFLAGS) -c Reminder.cpp
 
-Calendar.o: Calendar.o
+Calendar.o: Calendar.cpp Calendar.h Date.h Reminder.h
+	$(CXX) $(CPPFLAGS) -c Calendar.cpp
 
 # Clean up
 clean:
