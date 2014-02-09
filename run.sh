@@ -14,9 +14,12 @@ make
 echo; echo
 echo ---------------
 
-if [ "$1" == "valgrind" ];
+if [ "$1" == "--valgrind" ]
 then
   valgrind ./output
+elif [ "$1" == "--no-run" ];
+then
+  echo "Program not executed: --no-run flag included"
 else
   ./output
 fi

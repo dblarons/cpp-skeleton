@@ -23,9 +23,9 @@ http://www.vagrantup.com/
 
 - $ vagrant ssh
 
-- $ cd ..; cd..; cd vagrant
+- $ cd /vagrant  # go to shared directory
 
-- $ sh run.sh # This runs the project
+- $ bash run.sh # Run the project
 
 Everytime you want to run your code, simply do $ sh run.sh again
 
@@ -34,4 +34,10 @@ When you are done working, do:
 - $ vagrant destroy
 
 to quit the virtualbox. If you forget to do this, it will eat up your RAM.
+
+##### Helpful flags
+
+- $ bash run.sh --valgrind  # check for memory leaks with Valgrind
+
+- $ bash run.sh --no-run  # compile only; helpful when you just want to check for compiler warnings
 
