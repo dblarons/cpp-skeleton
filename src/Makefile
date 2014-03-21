@@ -1,4 +1,4 @@
-CXX=g++
+CXX=clang++
 RM=rm -f
 CPPFLAGS=-g -D_REENTRANT -pthread -I/sw/include/root -Wall
 LDFLAGS=-g

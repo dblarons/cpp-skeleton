@@ -1,6 +1,6 @@
 #### How it works
 
-You will be developing in a headless virtualbox installation of Ubuntu. This way, compilation works the same on Windows as it does on Mac--using the g++ compiler.
+You will be developing in a headless virtualbox installation of Ubuntu. This way, compilation works the same on Windows as it does on Mac--using the clang++ compiler.
 
 This is a skeleton project, so clone this repo and make copies of it for each new project you work on.
 
@@ -40,4 +40,8 @@ to quit the virtualbox. If you forget to do this, it will eat up your RAM.
 - $ bash run.sh --valgrind  # check for memory leaks with Valgrind
 
 - $ bash run.sh --no-run  # compile only; helpful when you just want to check for compiler warnings
+
+##### Other options
+
+If you would like to use g++ instead of clang++, change the CXX variable in src/Makefile from clang++ to g++
 
