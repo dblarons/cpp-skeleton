@@ -5,7 +5,7 @@ LDFLAGS=-g
 LDLIBS=-lm -ldl -lz
 
 # List all .cpp files here
-SRCS=GuitarHero.cpp DblQueue.cpp GuitarString.cpp
+SRCS=testQueue.cpp DblQueue.cpp GuitarString.cpp
 
 # subst replaces all instances of .cpp with .o in SRCS
 OBJS=$(subst .cpp,.o,$(SRCS))
@@ -19,8 +19,8 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(LDFLAGS) -o output $(OBJS) $(LDLIBS)
 
-GuitarHero.o: GuitarHero.cpp GuitarString.h DblQueue.h
-	$(CXX) $(CPPFLAGS) -c GuitarHero.cpp
+testQueue.o: testQueue.cpp GuitarString.h DblQueue.h
+	$(CXX) $(CPPFLAGS) -c testQueue.cpp
 
 GuitarString.o: GuitarString.cpp GuitarString.h DblQueue.h
 	$(CXX) $(CPPFLAGS) -c GuitarString.cpp

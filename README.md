@@ -41,6 +41,8 @@ to quit the virtualbox. If you forget to do this, it will eat up your RAM.
 
 - $ bash run.sh --no-run  # compile only; helpful when you just want to check for compiler warnings
 
+- $ bash run.sh --test # test the project with a supplied test file specified in MakeTests
+
 ##### Other options
 
 If you would like to use g++ instead of clang++, change the CXX variable in src/Makefile from clang++ to g++
