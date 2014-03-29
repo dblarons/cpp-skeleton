@@ -1,0 +1,27 @@
+CXX=clang++
+RM=rm -f
+CPPFLAGS=-g -D_REENTRANT -pthread -I/sw/include/root -Wall
+LDFLAGS=-g
+LDLIBS=-lm -ldl -lz
+
+# List all .cpp files here
+SRCS=testQueue.cpp
+
+# subst replaces all instances of .cpp with .o in SRCS
+OBJS=$(subst .cpp,.o,$(SRCS))
+
+# the build target executable:
+TARGET=caltest
+
+all: $(TARGET)
+
+# TARGET depends on $(OBJS)
+$(TARGET): $(OBJS)
+	$(CXX) $(LDFLAGS) -o output $(OBJS) $(LDLIBS)
+
+testStack.o: testQueue.cpp Queue_t.h Queue_t.cpp
+	$(CXX) $(CPPFLAGS) -c testQueue.cpp
+
+# Clean up
+clean:
+	$(RM) $(OBJS)

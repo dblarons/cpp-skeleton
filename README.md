@@ -47,3 +47,9 @@ to quit the virtualbox. If you forget to do this, it will eat up your RAM.
 
 If you would like to use g++ instead of clang++, change the CXX variable in src/Makefile from clang++ to g++
 
+##### Specific to Project 7
+
+- $ bash run.sh --test-stack  # test the templatized stack
+
+- $ bash run.sh --test-queue  # test the templatized queue
+

@@ -13,6 +13,12 @@ make clean
 if [ "$1" == "--test" ]
 then
   make -f MakeTests
+elif [ "$1" == "--test-stack" ]
+then
+  make -f MakeStackTests
+elif [ "$1" == "--test-queue" ]
+then
+  make -f MakeQueueTests
 else
   make
 fi
