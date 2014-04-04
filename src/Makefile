@@ -5,7 +5,7 @@ LDFLAGS=-g
 LDLIBS=-lm -ldl -lz
 
 # List all .cpp files here
-SRCS=GuitarHero.cpp DblQueue.cpp GuitarString.cpp
+SRCS=Main.cpp Maze.cpp Point.cpp MazeSolver.cpp
 
 # subst replaces all instances of .cpp with .o in SRCS
 OBJS=$(subst .cpp,.o,$(SRCS))
@@ -19,14 +19,17 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(LDFLAGS) -o output $(OBJS) $(LDLIBS)
 
-GuitarHero.o: GuitarHero.cpp GuitarString.h DblQueue.h
-	$(CXX) $(CPPFLAGS) -c GuitarHero.cpp
+Main.o: Main.cpp Maze.h PointAgenda.h LifoPointAgenda.h FifoPointAgenda.h MazeSolver.h
+	$(CXX) $(CPPFLAGS) -c Main.cpp
 
-GuitarString.o: GuitarString.cpp GuitarString.h DblQueue.h
-	$(CXX) $(CPPFLAGS) -c GuitarString.cpp
+Maze.o: Maze.cpp Maze.h Point.h
+	$(CXX) $(CPPFLAGS) -c Maze.cpp
 
-DblQueue.o: DblQueue.cpp DblQueue.h
-	$(CXX) $(CPPFLAGS) -c DblQueue.cpp
+Point.o: Point.cpp Point.h
+	$(CXX) $(CPPFLAGS) -c Point.cpp
+
+MazeSolver.o: MazeSolver.cpp MazeSolver.h
+	$(CXX) $(CPPFLAGS) -c MazeSolver.cpp
 
 # Clean up
 clean:
