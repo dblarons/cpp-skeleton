@@ -17,10 +17,8 @@ all: $(TARGET)
 
 # TARGET depends on $(OBJS)
 $(TARGET): $(OBJS)
-	$(CXX) $(LDFLAGS) -o output $(OBJS) $(LDLIBS)
+	$(CXX) $(LDFLAGS) -o output testQueue.cpp $(LDLIBS)
 
-testStack.o: testQueue.cpp Queue_t.h Queue_t.cpp
-	$(CXX) $(CPPFLAGS) -c testQueue.cpp
 
 # Clean up
 clean:
