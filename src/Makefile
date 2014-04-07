@@ -5,7 +5,7 @@ LDFLAGS=-g
 LDLIBS=-lm -ldl -lz
 
 # List all .cpp files here
-SRCS=Main.cpp Maze.cpp Point.cpp MazeSolver.cpp
+SRCS=WordCount.cpp
 
 # subst replaces all instances of .cpp with .o in SRCS
 OBJS=$(subst .cpp,.o,$(SRCS))
@@ -17,19 +17,10 @@ all: $(TARGET)
 
 # TARGET depends on $(OBJS)
 $(TARGET): $(OBJS)
-	$(CXX) $(LDFLAGS) -o output $(OBJS) $(LDLIBS)
+	$(CXX) $(LDFLAGS) -o output WordCount.cpp $(LDLIBS)
 
-Main.o: Main.cpp Maze.h PointAgenda.h LifoPointAgenda.h FifoPointAgenda.h MazeSolver.h
-	$(CXX) $(CPPFLAGS) -c Main.cpp
-
-Maze.o: Maze.cpp Maze.h Point.h
-	$(CXX) $(CPPFLAGS) -c Maze.cpp
-
-Point.o: Point.cpp Point.h
-	$(CXX) $(CPPFLAGS) -c Point.cpp
-
-MazeSolver.o: MazeSolver.cpp MazeSolver.h
-	$(CXX) $(CPPFLAGS) -c MazeSolver.cpp
+# MazeSolver.o: MazeSolver.cpp MazeSolver.h
+# 	$(CXX) $(CPPFLAGS) -c MazeSolver.cpp
 
 # Clean up
 clean:
